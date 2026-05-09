@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arise Awuake | Communication Skills & Personality Development</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0a0a0a;
+      --canvas:#fffaf0;
+      --surface-soft:#faf5e8;
+      --surface-card:#f5f0e0;
+      --surface-strong:#ebe6d6;
+
+      --pink:#ff4d8b;
+      --teal:#1a3a3a;
+      --lavender:#b8a4ed;
+      --peach:#ffb084;
+      --ochre:#e8b94a;
+      --mint:#a4d4c5;
+      --coral:#ff6b5a;
+      --lime:#fff01f;
+      
+
+      --body:#3a3a3a;
+      --muted:#6a6a6a;
+      --hairline:#e5e5e5;
+
+      --radius-md:12px;
+      --radius-lg:16px;
+      --radius-xl:24px;
+
+      --section-space:96px;
+      --shadow:0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--canvas);
+      color:var(--primary);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:min(1280px,92%);
+      margin:auto;
+    }
+
+    h1,h2,h3,h4{
+      font-weight:500;
+      letter-spacing:-1px;
+      line-height:1.05;
+    }
+
+    p{
+      color:var(--body);
+      font-size:16px;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(255,250,240,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-inner{
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:-0.5px;
+    }
+
+    .logo span{
+      color:var(--ochre);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:32px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--body);
+      font-size:14px;
+      font-weight:500;
+    }
+
+    .nav-btn{
+      background:var(--primary);
+      color:white;
+      padding:12px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:110px 0 90px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--surface-card);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:24px;
+    }
+
+    .hero h1{
+      font-size:72px;
+      margin-bottom:24px;
+      letter-spacing:-2.5px;
+    }
+
+    .hero p{
+      font-size:19px;
+      max-width:620px;
+      margin-bottom:36px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .secondary-btn{
+      border:1px solid var(--hairline);
+      color:var(--primary);
+      background:transparent;
+      padding:12px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* CLAY ILLUSTRATION */
+
+    .hero-card{
+      background:linear-gradient(145deg,var(--surface-soft),#f9f0db);
+      border-radius:32px;
+      padding:40px;
+      min-height:500px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .blob{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(0px);
+    }
+
+    .blob1{
+      width:180px;
+      height:180px;
+      background:var(--lavender);
+      top:40px;
+      left:30px;
+    }
+
+    .blob2{
+      width:220px;
+      height:220px;
+      background:var(--peach);
+      bottom:-40px;
+      right:0;
+    }
+
+    .blob3{
+      width:120px;
+      height:120px;
+      background:var(--mint);
+      top:100px;
+      right:60px;
+    }
+
+    .person{
+      width:240px;
+      height:320px;
+      position:relative;
+      z-index:2;
+    }
+
+    .head{
+      width:120px;
+      height:120px;
+      background:#f5c9a7;
+      border-radius:50%;
+      margin:auto;
+      position:relative;
+      box-shadow:var(--shadow);
+    }
+
+    .body-shape{
+      width:220px;
+      height:180px;
+      background:var(--teal);
+      margin: -20px auto 0;
+      border-radius:40px;
+      position:relative;
+      box-shadow:var(--shadow);
+    }
+
+    .mic{
+      width:18px;
+      height:90px;
+      background:#333;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:140px;
+      border-radius:20px;
+    }
+
+    /* STATS */
+
+    .stats{
+      padding:40px 0 90px;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .stat-card{
+      padding:32px;
+      border-radius:24px;
+      color:white;
+    }
+
+    .stat-card:nth-child(1){background:var(--pink);}
+    .stat-card:nth-child(2){background:var(--teal);}
+    .stat-card:nth-child(3){background:var(--lavender); color:#111;}
+    .stat-card:nth-child(4){background:var(--ochre); color:#111;}
+
+    .stat-card h2{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .stat-card p{
+      color:inherit;
+      opacity:0.9;
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:var(--section-space) 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:56px;
+      margin-bottom:20px;
+    }
+
+    .section-title p{
+      max-width:720px;
+      margin:auto;
+      font-size:18px;
+    }
+
+    /* FEATURES */
+
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .feature-card{
+      padding:36px;
+      border-radius:28px;
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .feature-card h3{
+      font-size:28px;
+      margin-bottom:18px;
+    }
+
+    .feature-card p{
+      max-width:90%;
+    }
+
+    .feature-card .emoji{
+      position:absolute;
+      right:20px;
+      bottom:20px;
+      font-size:60px;
+      opacity:0.9;
+    }
+
+    .pink{
+      background:var(--pink);
+      color:white;
+    }
+
+    .pink p{color:white;}
+
+    .teal{
+      background:var(--teal);
+      color:white;
+    }
+
+    .teal p{color:white;}
+
+    .lavender{
+      background:var(--lavender);
+    }
+
+    .peach{
+      background:var(--peach);
+    }
+
+    .ochre{
+      background:var(--ochre);
+    }
+
+    .cream{
+      background:var(--surface-card);
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .testimonial{
+      background:var(--surface-card);
+      padding:32px;
+      border-radius:24px;
+    }
+
+    .stars{
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    .testimonial p{
+      font-size:17px;
+      margin-bottom:22px;
+    }
+
+    .reviewer{
+      font-weight:600;
+    }
+
+    /* ABOUT */
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-card{
+      background:var(--surface-card);
+      padding:42px;
+      border-radius:28px;
+    }
+
+    .about-card h3{
+      font-size:36px;
+      margin-bottom:20px;
+    }
+
+    .info-list{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin-top:26px;
+    }
+
+    .info-item{
+      padding:18px;
+      background:white;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,0.05);
+    }
+    
+    iframe{
+      border-radius:var(--radius-lg);
+      border-width:1px solid gray;
+    }
+    
+    .info-item strong{
+      display:block;
+      margin-bottom:6px;
+    }
+
+    /* CTA */
+
+    .cta{
+      padding-bottom:110px;
+    }
+
+    .cta-band{
+      background:var(--surface-soft);
+      border-radius:40px;
+      padding:80px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta-band h2{
+      font-size:54px;
+      margin-bottom:20px;
+    }
+
+    .cta-band p{
+      max-width:720px;
+      margin:0 auto 30px;
+      font-size:18px;
+    }
+
+    .floating{
+      position:absolute;
+      border-radius:50%;
+      opacity:0.8;
+    }
+
+    .f1{
+      width:140px;
+      height:140px;
+      background:var(--mint);
+      top:-20px;
+      left:-30px;
+    }
+
+    .f2{
+      width:180px;
+      height:180px;
+      background:var(--peach);
+      bottom:-40px;
+      right:-20px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:var(--surface-soft);
+      padding:70px 0;
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:40px;
+    }
+
+    .footer-brand h3{
+      font-size:28px;
+      margin-bottom:16px;
+    }
+
+    .footer-brand p{
+      max-width:420px;
+    }
+
+    .footer-links h4{
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    .footer-links a{
+      display:block;
+      margin-bottom:12px;
+      text-decoration:none;
+      color:var(--body);
+    }
+
+    .copyright{
+      margin-top:50px;
+      padding-top:24px;
+      border-top:1px solid rgba(0,0,0,0.06);
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1024px){
+
+      .hero-grid,
+      .about-grid,
+      .features-grid,
+      .testimonial-grid,
+      .stats-grid,
+      .footer-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h1{
+        font-size:56px;
+      }
+
+      .section-title h2{
+        font-size:42px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero{
+        padding-top:70px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .features-grid,
+      .testimonial-grid,
+      .stats-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .section-title h2{
+        font-size:36px;
+      }
+
+      .cta-band{
+        padding:50px 24px;
+      }
+
+      .cta-band h2{
+        font-size:36px;
+      }
+
+      .hero-card{
+        min-height:360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">
+        Arise <span>Awuake</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#features">Programs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="tel:9573340708" class="nav-btn">
+        Call Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <div class="eyebrow">
+          ⭐ 4.9 Rating • 152 Reviews
+        </div>
+
+        <h1>
+          Build confidence.<br>
+          Speak better.<br>
+          Become unstoppable.
+        </h1>
+
+        <p>
+          Arise Awuake Communication Skills & Personality Development Training Centre helps students and professionals improve spoken English, communication confidence, personality, and public speaking skills in a peaceful learning environment.
+        </p>
+
+        <div class="hero-actions">
+          <a href="tel:9573340708" class="nav-btn">
+            Book a Demo Class
+          </a>
+
+          <a href="#about" class="secondary-btn">
+            Explore Training
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+
+        <div class="person">
+          <div class="head"></div>
+          <div class="body-shape"></div>
+          <div class="mic"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+
+  <section class="stats">
+    <div class="container">
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <h2>4.9★</h2>
+          <p>Student Satisfaction Rating</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>152+</h2>
+          <p>Positive Reviews & Success Stories</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>100%</h2>
+          <p>Confidence-Focused Training Approach</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>Daily</h2>
+          <p>Interactive Spoken Practice Sessions</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+
+  <section id="features">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Transform your communication journey</h2>
+
+        <p>
+          Our practical and interactive training system focuses on real-world communication improvement, confidence building, and personality transformation.
+        </p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card pink">
+          <h3>Communication Skills</h3>
+          <p>
+            Improve spoken English, vocabulary, fluency, pronunciation, and day-to-day communication confidence.
+          </p>
+
+          <div class="emoji">🗣️</div>
+        </div>
+
+        <div class="feature-card teal">
+          <h3>Stage Fear Reduction</h3>
+          <p>
+            Learn public speaking techniques that help you confidently face interviews, seminars, and stage presentations.
+          </p>
+
+          <div class="emoji">🎤</div>
+        </div>
+
+        <div class="feature-card lavender">
+          <h3>Personality Development</h3>
+          <p>
+            Develop positive attitude, body language, self-confidence, leadership skills, and social communication.
+          </p>
+
+          <div class="emoji">✨</div>
+        </div>
+
+        <div class="feature-card peach">
+          <h3>Positive Environment</h3>
+          <p>
+            A calm, peaceful, and motivating atmosphere where students feel comfortable practicing and growing daily.
+          </p>
+
+          <div class="emoji">🌿</div>
+        </div>
+
+        <div class="feature-card ochre">
+          <h3>Practical Training</h3>
+          <p>
+            Daily speaking activities, live interactions, and confidence-building exercises designed for real results.
+          </p>
+
+          <div class="emoji">📚</div>
+        </div>
+
+        <div class="feature-card cream">
+          <h3>Career Confidence</h3>
+          <p>
+            Prepare for interviews, workplace communication, group discussions, and personal growth opportunities.
+          </p>
+
+          <div class="emoji">🚀</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section id="reviews">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Students love the experience</h2>
+
+        <p>
+          Real feedback from learners who improved their communication confidence and personality through Arise Awuake.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+
+          <p>
+            “This institute gives the best English training. My confidence improved a lot after joining here.”
+          </p>
+
+          <div class="reviewer">
+            Student Review
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+
+          <p>
+            “A peaceful and calm place with a positive environment. The teaching style is motivating and practical.”
+          </p>
+
+          <div class="reviewer">
+            Student Feedback
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+
+          <p>
+            “He gave positive vibes and confidence to speak in English. I overcame hesitation and stage fear.”
+          </p>
+
+          <div class="reviewer">
+            Communication Training Student
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container about-grid">
+
+      <div class="about-card">
+        <h3>
+          About the training centre
+        </h3>
+
+        <p>
+          Arise Awuake Communication Skills & Personality Development Training Centre is dedicated to helping students and professionals become confident communicators through practical spoken English and personality development training.
+        </p>
+
+        <br>
+
+        <p>
+          The institute focuses on overcoming hesitation, reducing stage fear, and building strong communication habits through interactive daily sessions.
+        </p>
+        
+        <br>
+        
+            <a class="nav-btn" href="https://wa.me/+919573340708?text=here we can add our custom message as per our requirement">WhatsApp Now</a>
+      </div>
+
+      <div class="info-list">
+
+        <div class="info-item">
+          <strong>📍 Address</strong>
+          Back Side Of Lakshmi Towers Apartment, JNF Road, Opposite Haryana Jilebi Centre, Proddatur, Andhra Pradesh 516360
+        </div>
+        
+        <div>
+            <iframe
+                src="https://www.google.com/maps?q=Arise%20Awuake%20Proddatur&output=embed"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="info-item">
+          <strong>📞 Phone</strong>
+          095733 40708
+        </div>
+
+        <div class="info-item">
+          <strong>🌐 Website</strong>
+          ariseawuake.com
+        </div>
+
+        <div class="info-item">
+          <strong>⏰ Timings</strong>
+          Opens 5:50 AM everyday
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta" id="contact">
+    <div class="container">
+
+      <div class="cta-band">
+
+        <div class="floating f1"></div>
+        <div class="floating f2"></div>
+
+        <h2>
+          Start speaking with confidence today
+        </h2>
+
+        <p>
+          Join a supportive environment designed to help you improve communication skills, personality, confidence, and public speaking step by step.
+        </p>
+
+    <a class="nav-btn" href="https://wa.me/+919573340708?text=here we can add our custom message as per our requirement">WhatsApp Now</a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <h3>
+            Arise Awuake
+          </h3>
+
+          <p>
+            Communication Skills & Personality Development Training Centre helping students and professionals become confident speakers and leaders.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+
+          <a href="#features">Programs</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Contact</h4>
+
+          <a href="tel:9573340708">095733 40708</a>
+          <a href="#">Proddatur, Andhra Pradesh</a>
+          <a href="#">ariseawuake.com</a>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 Arise Awuake Communication Skills & Personality Development Training Centre. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Smooth appearance animation
+
+    const cards = document.querySelectorAll('.feature-card, .testimonial, .stat-card');
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.transform = 'translateY(0px)';
+          entry.target.style.opacity = '1';
+        }
+      });
+    },{threshold:0.1});
+
+    cards.forEach(card=>{
+      card.style.transform = 'translateY(30px)';
+      card.style.opacity = '0';
+      card.style.transition = 'all 0.7s ease';
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
